@@ -7,6 +7,7 @@ struct z{
     int size;
     int* a=new int[size];
     z(int n=1){
+        if((n!=0)&&(n!=1)){
         vector<int> arr(0);
         int k=0;
         for(int i=2; n!=1; i++){
@@ -22,9 +23,10 @@ struct z{
              a[y]=arr[y];
             
           }
-        }
+        }else size = 0;
+    }
        
-       bool operator==(const z& val3){
+        int operator==(const z& val3){
                 if(size==val3.size){
                     int i=1,j=1, size2=val3.size;
                     for(int p=0; p<size; p++){
@@ -56,15 +58,14 @@ struct z{
                 if(*this==val2){
                     return 0;}
                     else{
-            int i=1,j=1, dif, size2=val2.size;
+            int i=1,j=1, size2=val2.size;
             for(int p=0; p<size; p++){
                 i=i*a[p];
             }
             for( int q=0; q<size2; q++){
                 j=j*val2.a[q];
             }
-            dif=i-j;
-            return z(dif);
+            return z(i-j);
             }}
             
             
